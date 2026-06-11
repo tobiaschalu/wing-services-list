@@ -1,0 +1,159 @@
+/**
+ * Wing Services List – Editor-Only Styles (a11y improved)
+ */
+
+// ── Card toolbar ─────────────────────────────────────────────────────────
+.wing-services-list__card-toolbar {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	padding: 6px 8px;
+	background: #f8fafc;
+	border-bottom: 1px solid #e2e8f0;
+	opacity: 0;
+	transition: opacity .15s ease;
+}
+
+.wing-services-list__card:hover  .wing-services-list__card-toolbar,
+.wing-services-list__card:focus-within .wing-services-list__card-toolbar,
+.wing-services-list__card.is-editing   .wing-services-list__card-toolbar {
+	opacity: 1;
+}
+
+// ── Error state ──────────────────────────────────────────────────────────
+.wing-services-list__card.has-errors {
+	outline: 2px solid #DC2626;
+	outline-offset: 0;
+}
+
+// ── Field wrapper + inline error ─────────────────────────────────────────
+.wing-field {
+	display: flex;
+	flex-direction: column;
+	gap: 2px;
+}
+
+.wing-field--error {
+	.wing-services-list__card-title,
+	.components-text-control__input {
+		border-bottom: 2px solid #DC2626 !important;
+	}
+}
+
+.wing-field__error {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 11px;
+	color: #DC2626;
+	font-weight: 500;
+	margin-bottom: 4px;
+
+	&::before {
+		content: '⚠';
+		font-size: 10px;
+	}
+}
+
+// ── Image area ───────────────────────────────────────────────────────────
+.wing-services-list__card-image {
+	position: relative;
+}
+
+.wing-services-list__image-btn {
+	display: block;
+	width: 100%;
+	padding: 0;
+	border: none;
+	background: none;
+	cursor: pointer;
+
+	// Visible focus ring for keyboard users
+	&:focus-visible {
+		outline: 3px solid var(--wp-admin-theme-color, #2563eb);
+		outline-offset: -3px;
+	}
+}
+
+.wing-services-list__image-btn img {
+	width: 100%;
+	display: block;
+	aspect-ratio: 16 / 9;
+	object-fit: cover;
+}
+
+.wing-services-list__image-placeholder {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 6px;
+	padding: 2rem 1rem;
+	background: #f1f5f9;
+	color: #94a3b8;
+	font-size: .8125rem;
+	transition: background .15s, color .15s;
+	aspect-ratio: 16 / 9;
+}
+
+.wing-services-list__image-btn:hover   .wing-services-list__image-placeholder,
+.wing-services-list__image-btn:focus-visible .wing-services-list__image-placeholder {
+	background: #e2e8f0;
+	color: #64748b;
+}
+
+.wing-services-list__image-placeholder svg {
+	width: 2rem;
+	height: 2rem;
+}
+
+.wing-services-list__image-remove {
+	position: absolute;
+	bottom: 6px;
+	right: 6px;
+}
+
+.wing-services-list__media-fallback {
+	font-size: .8125rem;
+	color: #94a3b8;
+	padding: 1rem;
+	text-align: center;
+	margin: 0;
+}
+
+// ── Extended fields panel ─────────────────────────────────────────────────
+// Using hidden attribute — shown/hidden via aria-hidden in JS
+.wing-services-list__card-extras[hidden] {
+	display: none;
+}
+
+.wing-services-list__card-extras {
+	margin-top: .75rem;
+	padding: .75rem;
+	background: #f8fafc;
+	border-radius: 6px;
+	border: 1px solid #e2e8f0;
+
+	.components-base-control {
+		margin-bottom: .5rem;
+	}
+}
+
+// ── Add button row ────────────────────────────────────────────────────────
+.wing-services-list__add-row {
+	margin-top: 1.5rem;
+	display: flex;
+	justify-content: center;
+}
+
+// ── is-editing highlight ──────────────────────────────────────────────────
+.wing-services-list__card.is-editing {
+	box-shadow: 0 0 0 2px var(--wp-admin-theme-color, #2563eb);
+}
+
+// ── Grid: strip list styling in editor (grid is a <ol>) ──────────────────
+.wing-services-list__grid {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}

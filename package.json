@@ -1,0 +1,19 @@
+{
+  "name": "wing-services-list",
+  "version": "1.0.0",
+  "description": "Wing Services List – Gutenberg block plugin",
+  "scripts": {
+    "build": "wp-scripts build",
+    "start": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "lint:style": "wp-scripts lint-style",
+    "format": "wp-scripts format",
+    "packages-update": "wp-scripts packages-update"
+  },
+  "devDependencies": {
+    "@wordpress/scripts": "^30.0.0"
+  },
+  "dependencies": {
+    "@wordpress/icons": "^14.0.0"
+  }
+}
